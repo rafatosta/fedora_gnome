@@ -49,7 +49,7 @@ dnf install -y gdm gnome-shell gnome-console gnome-console-nautilus nautilus xdg
 #dnf install adwaita-qt5 adwaita-qt6 
 
 # Instalando programas pessoais
-dnf install -y megasync google-chrome-stable code vlc
+dnf install -y megasync google-chrome-stable code vlc nodejs
 
 # Apps em flatpak
 flatpak install -y com.rtosta.zapzap com.mattjakeman.ExtensionManager \
