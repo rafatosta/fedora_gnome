@@ -24,7 +24,7 @@ dnf install -y fedora-workstation-repositories
 dnf config-manager --set-enabled google-chrome
 
 # Adw-gtk3
-dnf copr enable nickavem/adw-gtk3
+dnf -y copr enable nickavem/adw-gtk3
 
 #Visual Studio Code
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
@@ -41,7 +41,7 @@ dnf install -y @base-x
 dnf -y install intel-media-driver libva libva-intel-driver libva-vdpau-driver libva-utils
 
 # Instalando pacote básicos gnome
-dnf install -y gdm gnome-shell gnome-console gnome-console-nautilus nautilus xdg-user-dirs-gtk \
+dnf install -y gdm gnome-shell gnome-terminal gnome-terminal-nautilus nautilus xdg-user-dirs-gtk \
  gnome-tweaks evince gnome-text-editor gnome-system-monitor gnome-clocks \
  gnome-calendar gnome-calculator gnome-disk-utility eog dialect transmission evolution
 
@@ -53,7 +53,7 @@ dnf install -y megasync google-chrome-stable code vlc nodejs
 
 # Apps em flatpak
 flatpak install -y com.rtosta.zapzap com.mattjakeman.ExtensionManager \
-org.eclipse.Java com.github.tchx84.Flatseal org.telegram.desktop\
+org.eclipse.Java com.github.tchx84.Flatseal org.telegram.desktop \
 org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark 
 
 # Ativando o gdm e definindo como padrão
