@@ -25,14 +25,19 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 ## Drivers Intel extends
 dnf -y install intel-media-driver libva libva-intel-driver libva-vdpau-driver libva-utils
 
-
 ## Removendo apps não utilizados
-dnf remove -y gnome-photos gnome-tour gnome-boxes podman gnome-logs firefox abrt
+dnf remove -y gnome-photos gnome-contacts gnome-tour gnome-boxes gnome-maps gnome-logs gnome-weather podman firefox abrt rhythmbox totem
 
 ## Instalando programas pessoais
-dnf install -y megasync google-chrome-stable code vlc nodejs adw-gtk3
+dnf install -y megasync google-chrome-stable code vlc nodejs adw-gtk3 dialect evolution 
+
+## Instala as extensões
+dnf install -y gnome-shell-extension-user-theme
 
 ## Apps em flatpak
 flatpak install -y com.rtosta.zapzap com.mattjakeman.ExtensionManager \
 org.eclipse.Java com.github.tchx84.Flatseal org.telegram.desktop io.github.shiftey.Desktop \
 org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark 
+
+## Desativa NetworkManager-wait-online.service
+systemctl disable NetworkManager-wait-online.service
