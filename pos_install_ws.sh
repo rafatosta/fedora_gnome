@@ -26,7 +26,7 @@ flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flat
 dnf -y install intel-media-driver libva libva-intel-driver libva-vdpau-driver libva-utils
 
 ## Removendo apps não utilizados
-dnf remove -y gnome-photos gnome-contacts gnome-tour gnome-boxes gnome-maps gnome-logs gnome-weather podman firefox abrt rhythmbox totem simple-scan 
+dnf remove -y gnome-photos gnome-contacts gnome-tour gnome-boxes gnome-maps gnome-logs gnome-weather podman firefox abrt rhythmbox totem simple-scan mediawriter
 
 dnf autoremove
 
