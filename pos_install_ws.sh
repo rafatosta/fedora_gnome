@@ -6,7 +6,7 @@
 ## Repositórios
 
 # Desativando repositórios não utilizados
-dnf config-manager --disable *-modular *-steam *-nvidia-driver *-PyCharm
+dnf config-manager --disable *-modular *-steam *-nvidia-driver *-PyCharm *-openh264
  
 # RPM Fusion
 dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
@@ -23,10 +23,10 @@ sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.micros
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 
 ## Drivers Intel extends
-dnf -y install intel-media-driver libva libva-intel-driver libva-vdpau-driver libva-utils
+dnf -y install intel-media-driver libva-intel-driver libva-utils
 
 ## Removendo apps não utilizados
-dnf remove -y gnome-photos gnome-contacts gnome-tour gnome-boxes gnome-maps gnome-logs gnome-weather podman firefox abrt rhythmbox totem simple-scan mediawriter libreoffice*
+dnf remove -y gnome-photos gnome-contacts gnome-tour gnome-boxes gnome-maps gnome-logs gnome-weather podman firefox abrt rhythmbox totem simple-scan mediawriter
 
 dnf autoremove
 

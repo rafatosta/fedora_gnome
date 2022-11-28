@@ -34,15 +34,14 @@ sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.micros
 dnf install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
  
-
 # Instalando o Xorg base (suporte para VGA intel, radeon e nouveau)
-#dnf install -y @base-x
- 
+dnf install -y @base-x
+
 #Drivers Intel extends
 dnf -y install intel-media-driver libva libva-intel-driver libva-vdpau-driver libva-utils
 
 # Instalando pacote básicos gnome
-dnf install -y gnome-shell gnome-terminal gnome-terminal-nautilus nautilus xdg-user-dirs-gtk \
+dnf install -y gdm gnome-shell gnome-terminal gnome-terminal-nautilus nautilus xdg-user-dirs-gtk \
  gnome-tweaks evince gnome-text-editor gnome-system-monitor gnome-clocks \
  gnome-calendar gnome-calculator gnome-disk-utility eog dialect transmission evolution unzip
 
@@ -64,13 +63,13 @@ dnf install -y gnome-shell-extension-user-theme gnome-shell-extension-appindicat
 systemctl disable NetworkManager-wait-online.service
  
 # Esconde o grub
-#grub2-editenv - set menu_auto_hide=1
-#grub2-mkconfig -o /etc/grub2-efi.cfg
+grub2-editenv - set menu_auto_hide=1
+grub2-mkconfig -o /etc/grub2-efi.cfg
 # edite o timeout em /etc/default/grub
 # execute: sudo grub2-mkconfig -o /boot/grub2/grub.cfg
 
 # Ativando o gdm e definindo como padrão
-#systemctl enable gdm
+systemctl enable gdm
 systemctl set-default graphical.target
 # Reinicia a máquina
-#systemctl reboot
+#reboot

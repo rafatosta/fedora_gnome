@@ -18,7 +18,7 @@ dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-releas
 dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
 # Third-Party Repositories
-#dnf install -y fedora-workstation-repositories
+dnf install -y fedora-workstation-repositories
 
 # ativar o repositório do google-chrome
 dnf config-manager --set-enabled google-chrome
@@ -31,17 +31,14 @@ rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
 # Flatpak
-dnf install -y flatpak
+#dnf install -y flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
  
-# Instalando o Xorg base (suporte para VGA intel, radeon e nouveau)
-dnf install -y @base-x
-
-#Drivers Intel extends
-dnf -y install intel-media-driver libva libva-intel-driver libva-vdpau-driver libva-utils
+#Drivers Intel
+dnf -y install intel-media-driver libva-intel-driver libva-utils
 
 # Instalando pacote básicos gnome
-dnf install -y gdm gnome-shell gnome-terminal gnome-terminal-nautilus nautilus xdg-user-dirs-gtk \
+dnf install -y gnome-shell gnome-terminal gnome-terminal-nautilus nautilus xdg-user-dirs-gtk \
  gnome-tweaks evince gnome-text-editor gnome-system-monitor gnome-clocks \
  gnome-calendar gnome-calculator gnome-disk-utility eog dialect transmission evolution unzip
 
@@ -50,6 +47,9 @@ dnf install -y gdm gnome-shell gnome-terminal gnome-terminal-nautilus nautilus x
 
 # Instalando programas pessoais
 dnf install -y megasync google-chrome-stable code vlc nodejs adw-gtk3
+
+# Transferência de arquivos MTP
+dnf install -y gvfs-mtps imple-mtpfs 
 
 # Apps em flatpak
 flatpak install -y com.rtosta.zapzap com.mattjakeman.ExtensionManager \
@@ -63,13 +63,11 @@ dnf install -y gnome-shell-extension-user-theme gnome-shell-extension-appindicat
 systemctl disable NetworkManager-wait-online.service
  
 # Esconde o grub
-grub2-editenv - set menu_auto_hide=1
-grub2-mkconfig -o /etc/grub2-efi.cfg
-# edite o timeout em /etc/default/grub
-# execute: sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+#grub2-editenv - set menu_auto_hide=1
+#grub2-mkconfig -o /etc/grub2-efi.cfg
 
 # Ativando o gdm e definindo como padrão
-systemctl enable gdm
+#systemctl enable gdm
 systemctl set-default graphical.target
 # Reinicia a máquina
-#reboot
+#systemctl reboot
