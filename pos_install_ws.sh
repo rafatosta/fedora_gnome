@@ -12,9 +12,6 @@ dnf config-manager --disable *-modular *-steam *-nvidia-driver *-PyCharm *-openh
 dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
 dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
 
-# Tema Adw-gtk3
-dnf -y copr enable nickavem/adw-gtk3
-
 # Zapzap
 dnf copr enable rafatosta/zapzap
 
@@ -34,7 +31,7 @@ dnf remove -y gnome-photos gnome-contacts gnome-tour gnome-boxes gnome-maps gnom
 dnf autoremove
 
 ## Instalando programas pessoais
-dnf install -y megasync google-chrome-stable code vlc nodejs adw-gtk3 dialect evolution 
+dnf install -y megasync google-chrome-stable code vlc nodejs adw-gtk3-theme dialect evolution 
 
 ## Instala as extensões
 dnf install -y gnome-shell-extension-user-theme gnome-shell-extension-appindicator
