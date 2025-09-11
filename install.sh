@@ -2,11 +2,13 @@
 
 #Sincronizando o repositório
 # sudo dnf install git
-# git clone http://github.com/rafatosta/fedora_gnome_everything
+# git clone https://github.com/rafatosta/fedora_gnome
 
 
 # Ambiente 
-dnf install -y gnome-shell nautilus ptyxis gnome-software @networkmanager-submodules flatpak 
+dnf install -y gnome-shell nautilus ptyxis gnome-software @networkmanager-submodules flatpak \
+    evince gnome-text-editor gnome-system-monitor gnome-clocks gnome-calculator gnome-disk-utility unzip
+
 
 
 # Third-Party Repositories
@@ -15,6 +17,8 @@ dnf install -y fedora-workstation-repositories
 # ativar o repositório do google-chrome
 dnf config-manager setopt google-chrome.enabled=1
 dnf config-manager setopt rpmfusion-nonfree-nvidia-driver.enabled=1
+dnf config-manager setopt phracek-PyCharm.enabled=0
+dnf config-manager setopt rpmfusion-nonfree-steam.enabled=0
 
 # Visual Studio Code
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
