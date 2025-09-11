@@ -1,73 +1,42 @@
 #!/bin/bash
-#
-# Olhar: https://www.reddit.com/r/Fedora/comments/lobnfm/guide_fedora_gnome_minimal_install/
-#
-# Script feito por Rafael Tosta com o proposito de automatizar a minha instalação
-# do Fedora, a partir de uma INSTALACAO MINIMA da ISO Everything:
-#
 
 #Sincronizando o repositório
 # sudo dnf install git
 # git clone http://github.com/rafatosta/fedora_gnome_everything
 
-# Desativando repositórios Modular para updates mais rápidos
-dnf config-manager --disable *-modular *-openh264
 
-# Adicionando repositórios RPM Fusion
-dnf install -y https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm
-dnf install -y https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+# Ambiente 
+dnf install -y gnome-shell nautilus ptyxis gnome-software @networkmanager-submodules flatpak 
+
 
 # Third-Party Repositories
 dnf install -y fedora-workstation-repositories
 
 # ativar o repositório do google-chrome
-dnf config-manager --set-enabled google-chrome
+dnf config-manager setopt google-chrome.enabled=1
+dnf config-manager setopt rpmfusion-nonfree-nvidia-driver.enabled=1
 
-# Adw-gtk3
-dnf -y copr enable nickavem/adw-gtk3
-
-#Visual Studio Code
+# Visual Studio Code
 rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sh -c 'echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 
-# Flatpak
-#dnf install -y flatpak
+# Configurar o flatpak
 flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
- 
-#Drivers Intel
-dnf -y install intel-media-driver libva-intel-driver libva-utils
 
-# Instalando pacote básicos gnome
-dnf install -y gnome-shell gnome-terminal gnome-terminal-nautilus nautilus xdg-user-dirs-gtk \
- gnome-tweaks evince gnome-text-editor gnome-system-monitor gnome-clocks \
- gnome-calendar gnome-calculator gnome-disk-utility eog dialect transmission evolution unzip
 
-# Aplicativos Qt com o Adwaita
-#dnf install adwaita-qt5 adwaita-qt6 
+# Pacote e apps 
+dnf install -y nodejs adw-gtk3-theme google-chrome-stable code
 
-# Instalando programas pessoais
-dnf install -y megasync google-chrome-stable code vlc nodejs adw-gtk3
 
-# Transferência de arquivos MTP
-dnf install -y gvfs-mtps imple-mtpfs 
+## Apps em flatpak
+flatpak install -y com.mattjakeman.ExtensionManager \
+     com.github.tchx84.Flatseal \
+     org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark
 
-# Apps em flatpak
-flatpak install -y com.rtosta.zapzap com.mattjakeman.ExtensionManager \
-org.eclipse.Java com.github.tchx84.Flatseal org.telegram.desktop io.github.shiftey.Desktop \
-org.gtk.Gtk3theme.adw-gtk3 org.gtk.Gtk3theme.adw-gtk3-dark 
+gsettings set org.gnome.desktop.interface gtk-theme 'adw-gtk3' && gsettings set org.gnome.desktop.interface color-scheme 'default'
 
-#Instala as extensões
-dnf install -y gnome-shell-extension-user-theme gnome-shell-extension-appindicator
-
-#Desativa NetworkManager-wait-online.service
+# Desativa NetworkManager-wait-online.service
 systemctl disable NetworkManager-wait-online.service
- 
-# Esconde o grub
-#grub2-editenv - set menu_auto_hide=1
-#grub2-mkconfig -o /etc/grub2-efi.cfg
 
 # Ativando o gdm e definindo como padrão
-#systemctl enable gdm
 systemctl set-default graphical.target
-# Reinicia a máquina
-#systemctl reboot
