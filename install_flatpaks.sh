@@ -9,7 +9,6 @@ flatpak install --system com.rtosta.zapzap -y
 flatpak install --system com.spotify.Client -y
 flatpak install --system io.github.giantpinkrobots.varia -y
 flatpak install --system io.github.shiftey.Desktop -y
-flatpak install --system io.github.vikdevelop.SaveDesktop -y
 flatpak install --system net.nokyan.Resources -y
 flatpak install --system org.gaphor.Gaphor -y
 flatpak install --system org.gnome.Evolution -y
