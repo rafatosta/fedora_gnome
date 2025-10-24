@@ -40,7 +40,8 @@ echo "### ------ INSTALANDO PROGRAMAS PESSOAIS ------ ###"
 dnf install -y \
     google-chrome-stable \
     code \
-    nodejs
+    nodejs \
+    adw-gtk3-theme
 
 echo "### ------ INSTALANDO EXTENSÕES GNOME ------ ###"
 dnf install -y \
