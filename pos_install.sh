@@ -24,7 +24,7 @@ gpgcheck=1
 gpgkey=https://packages.microsoft.com/keys/microsoft.asc
 EOF
 else
-    echo "Repositório do VS Code já presente. Pulando..."
+    echo "Repositório do VS Code já existe. Pulando..."
 fi
 
 echo "### ------ REMOVENDO APLICATIVOS NÃO UTILIZADOS ------ ###"
@@ -40,13 +40,12 @@ echo "### ------ INSTALANDO PROGRAMAS PESSOAIS ------ ###"
 dnf install -y \
     google-chrome-stable \
     code \
-    nodejs \
+    nodejs
 
 echo "### ------ INSTALANDO EXTENSÕES GNOME ------ ###"
 dnf install -y \
     gnome-shell-extension-user-theme \
-    gnome-shell-extension-appindicator \
-
+    gnome-shell-extension-appindicator
 
 echo "### ------ INSTALANDO FLATPAKS ------ ###"
 if [ -f ./install_flatpaks.sh ]; then
@@ -59,8 +58,8 @@ fi
 echo "### ------ AJUSTANDO SERVIÇOS ------ ###"
 systemctl disable NetworkManager-wait-online.service || true
 
-echo "### ------ LIMPEZA E FINALIZAÇÃO ------ ###"
+echo "### ------ LIMPEZA FINAL ------ ###"
 dnf autoremove -y
-flatpak update -y
+flatpak remove --unused -y || true
 
 echo "✅ Pós-instalação concluída com sucesso!"
