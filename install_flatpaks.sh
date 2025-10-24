@@ -1,20 +1,49 @@
-flatpak install --system app.drey.Dialect -y
-flatpak install --system com.belmoussaoui.Obfuscate -y
-flatpak install --system com.boxy_svg.BoxySVG -y
-flatpak install --system com.github.tchx84.Flatseal -y
-flatpak install --system com.heroicgameslauncher.hgl -y
-flatpak install --system com.jetbrains.IntelliJ-IDEA-Community -y
-flatpak install --system com.mattjakeman.ExtensionManager -y
-flatpak install --system com.rtosta.zapzap -y
-flatpak install --system com.spotify.Client -y
-flatpak install --system io.github.giantpinkrobots.varia -y
-flatpak install --system io.github.shiftey.Desktop -y
-flatpak install --system net.nokyan.Resources -y
-flatpak install --system org.gaphor.Gaphor -y
-flatpak install --system org.gnome.Evolution -y
-flatpak install --system org.gnome.gitlab.somas.Apostrophe -y
-flatpak install --system org.onlyoffice.desktopeditors -y
-flatpak install --system org.texstudio.TeXstudio -y
-flatpak install --system org.videolan.VLC -y
-flatpak install --system org.virt_manager.virt-manager -y
-flatpak install --system page.tesk.Refine -y
+#!/bin/bash
+#
+# Instalação de Flatpaks essenciais
+# Autor: Rafael Tosta
+#
+
+set -euo pipefail
+
+# Lista de apps em um array para ficar mais limpo e fácil de manter
+APPS=(
+    app.drey.Dialect
+    com.belmoussaoui.Obfuscate
+    com.boxy_svg.BoxySVG
+    com.github.tchx84.Flatseal
+    com.heroicgameslauncher.hgl
+    com.jetbrains.IntelliJ-IDEA-Community
+    com.mattjakeman.ExtensionManager
+    com.rtosta.zapzap
+    com.spotify.Client
+    io.github.giantpinkrobots.varia
+    io.github.shiftey.Desktop
+    net.nokyan.Resources
+    org.gaphor.Gaphor
+    org.gnome.Evolution
+    org.gnome.gitlab.somas.Apostrophe
+    org.onlyoffice.desktopeditors
+    org.texstudio.TeXstudio
+    org.videolan.VLC
+    org.virt_manager.virt-manager
+    page.tesk.Refine
+)
+
+# Garante que o repositório Flathub esteja configurado
+if ! flatpak remote-list | grep -q flathub; then
+    echo "Adicionando repositório Flathub..."
+    flatpak remote-add --if-not-exists flathub \
+        https://flathub.org/repo/flathub.flatpakrepo
+fi
+
+# Instalação em lote
+for APP in "${APPS[@]}"; do
+    echo "Instalando $APP..."
+    flatpak install --system -y "$APP" || echo "Falha ao instalar $APP. Pulando..."
+done
+
+echo "Atualizando Flatpaks..."
+flatpak update -y || true
+
+echo "✅ Flatpaks instalados com sucesso!"
