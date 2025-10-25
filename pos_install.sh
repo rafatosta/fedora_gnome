@@ -41,7 +41,9 @@ dnf install -y \
     google-chrome-stable \
     code \
     nodejs \
-    adw-gtk3-theme
+    adw-gtk3-theme \
+    python3-pip \
+    flatpak-builder
 
 echo "### ------ INSTALANDO EXTENSÕES GNOME ------ ###"
 dnf install -y \
