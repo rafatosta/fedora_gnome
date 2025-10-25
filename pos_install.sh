@@ -32,7 +32,7 @@ echo "### ------ REMOVENDO APLICATIVOS NÃO UTILIZADOS ------ ###"
 # Remoção mais segura: ignora caso pacote não exista
 dnf remove -y \
     gnome-tour gnome-boxes gnome-maps gnome-weather showtime decibels \
-    firefox abrt simple-scan mediawriter || true
+    firefox abrt simple-scan mediawriter malcontent-control gnome-connections || true
 
 dnf autoremove -y
 
