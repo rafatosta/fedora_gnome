@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" xmlns:bx="https://boxy-svg.com">
+  <defs>
+    <filter id="b" width="113.5%" height="113.5%" x="-6.7%" y="-4.8%" filterUnits="objectBoundingBox">
+      <feOffset dy="1" in="SourceAlpha" result="shadowOffsetOuter1"/>
+      <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="1"/>
+      <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.24 0"/>
+    </filter>
+    <rect id="a" width="52" height="52" x="6" y="6" rx="11"/>
+    <filter id="drop-shadow-filter-0" bx:preset="drop-shadow 1 3 -73 4 0.7 rgba(0,0,0,0.3)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+      <feOffset dx="3" dy="-73"/>
+      <feComponentTransfer result="offsetblur">
+        <feFuncA id="spread-ctrl" type="linear" slope="1.4"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.3)"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <radialGradient gradientUnits="userSpaceOnUse" cx="32.042" cy="32.026" r="26.111" id="gradient-4">
+      <stop offset="0" style="stop-color: rgb(38.039% 38.039% 38.039%)"/>
+      <stop offset="1" style="stop-color: rgb(22.976% 22.976% 22.976%)"/>
+    </radialGradient>
+    <filter id="inner-shadow-filter-0" bx:preset="inner-shadow 1 0 0 0 0.05 rgba(0,0,0,0.7)" color-interpolation-filters="sRGB" x="-50%" y="-50%" width="200%" height="200%">
+      <feOffset dx="0" dy="0"/>
+      <feGaussianBlur stdDeviation="0"/>
+      <feComposite operator="out" in="SourceGraphic"/>
+      <feComponentTransfer result="choke">
+        <feFuncA type="linear" slope="0.1"/>
+      </feComponentTransfer>
+      <feFlood flood-color="rgba(0,0,0,0.7)" result="color"/>
+      <feComposite operator="in" in="color" in2="choke" result="shadow"/>
+      <feComposite operator="over" in="shadow" in2="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g fill-rule="nonzero" fill="none">
+    <rect width="52" height="52" x="6" y="6" rx="11" filter="url(#b)" style="fill: rgb(229, 229, 225); stroke: rgb(229, 229, 225); stroke-width: 0.5px;"/>
+    <rect width="52" height="52" x="6" y="6" rx="11" style="fill: rgb(229, 229, 225); stroke: rgb(229, 229, 225); stroke-width: 0.5px;"/>
+  </g>
+  <rect width="52" height="25.907" x="6.002" y="32.093" stroke-width=".3" rx="11" fill-rule="evenodd" style="stroke-width: 0.3; stroke: rgb(246, 245, 244); fill: rgb(246, 245, 244);"/>
+  <linearGradient id="gradient-1" gradientUnits="userSpaceOnUse" x1="36" x2="60" y1="68" y2="68" gradientTransform="matrix(0.482143, 0, 0, 0.482143, 59.982445, 0.070099)">
+    <stop offset="0" stop-color="#ed336c"/>
+    <stop offset="1" stop-color="#ffa348"/>
+  </linearGradient>
+  <linearGradient id="gradient-2" gradientTransform="matrix(0, 0.482143, -0.482143, 0, 129.411032, -15.358467)" gradientUnits="userSpaceOnUse" x1="72" x2="96" y1="68" y2="68">
+    <stop offset="0" stop-color="#404ce6"/>
+    <stop offset="1" stop-color="#c061cb"/>
+  </linearGradient>
+  <linearGradient id="gradient-3" gradientUnits="userSpaceOnUse" x1="68.84919" x2="95.257637" y1="84" y2="84" gradientTransform="matrix(0.482143, 0, 0, 0.482143, 59.982445, 0.070099)">
+    <stop offset="0" stop-color="#33d1c6"/>
+    <stop offset="1" stop-color="#1c25d8"/>
+  </linearGradient>
+  <rect x="5.931" y="31.193" width="52.222" height="1.667" style="opacity: 0.13; fill: url(&quot;#gradient-4&quot;); fill-opacity: 0.37; filter: url(&quot;#inner-shadow-filter-0&quot;);"/>
+  <path d="M 6.361 32.37 L 57.661 32.37 L 57.661 43.895 L 6.361 43.895 L 6.361 32.37 Z M 6.361 32.37" fill="#f6f5f4" style="stroke: rgb(246, 245, 244); filter: url(&quot;#drop-shadow-filter-0&quot;);"/>
+  <g transform="matrix(1, 0, 0, 1, -57.872502, -1.214005)">
+    <path d="M 81.196 27.071 L 85.053 27.071 C 87.183 27.071 88.91 28.798 88.91 30.928 L 88.91 34.785 C 88.91 36.915 87.183 38.642 85.053 38.642 L 81.196 38.642 C 79.066 38.642 77.339 36.915 77.339 34.785 L 77.339 30.928 C 77.339 28.798 79.066 27.071 81.196 27.071 Z M 81.196 27.071" fill="url(#gradient-1)" style="stroke-width: 1;"/>
+    <path d="M 96.625 30.928 C 93.429 30.928 90.839 28.338 90.839 25.142 C 90.839 21.946 93.429 19.357 96.625 19.357 C 99.821 19.357 102.41 21.946 102.41 25.142 C 102.41 28.338 99.821 30.928 96.625 30.928 Z M 96.625 30.928" fill="url(#gradient-2)" style="stroke-width: 1;"/>
+    <path d="M 99.898 34.291 L 91.423 39.136 C 90.907 39.43 90.589 39.977 90.589 40.571 C 90.589 41.164 90.907 41.712 91.423 42.006 L 99.898 46.85 C 100.418 47.147 101.057 47.144 101.574 46.845 C 102.092 46.543 102.41 45.991 102.41 45.392 L 102.41 35.749 C 102.41 35.151 102.092 34.599 101.574 34.297 C 101.057 33.998 100.418 33.994 99.898 34.291 Z M 99.898 34.291" fill="url(#gradient-3)" style="stroke-width: 1;"/>
+  </g>
+</svg>
