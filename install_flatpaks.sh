@@ -12,22 +12,21 @@ APPS=(
     com.belmoussaoui.Obfuscate
     com.boxy_svg.BoxySVG
     com.github.tchx84.Flatseal
-    com.heroicgameslauncher.hgl
     com.jetbrains.IntelliJ-IDEA-Community
     com.mattjakeman.ExtensionManager
     com.rtosta.zapzap
     com.spotify.Client
     io.github.giantpinkrobots.varia
-    io.github.shiftey.Desktop
+    io.github.pol_rivero.github-desktop-plus
     net.nokyan.Resources
     org.gaphor.Gaphor
-    org.gnome.Evolution
-    org.gnome.gitlab.somas.Apostrophe
     org.onlyoffice.desktopeditors
-    org.texstudio.TeXstudio
     org.videolan.VLC
     org.virt_manager.virt-manager
     page.tesk.Refine
+    io.qt.Designer
+    org.flatpak.Builder
+    org.libreoffice.LibreOffice
 )
 
 # Garante que o repositório Flathub esteja configurado

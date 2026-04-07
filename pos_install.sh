@@ -32,7 +32,7 @@ echo "### ------ REMOVENDO APLICATIVOS NÃO UTILIZADOS ------ ###"
 # Remoção mais segura: ignora caso pacote não exista
 dnf remove -y \
     gnome-tour gnome-boxes gnome-maps gnome-weather showtime decibels \
-    firefox abrt simple-scan mediawriter malcontent-control gnome-connections || true
+    firefox abrt simple-scan mediawriter malcontent-control gnome-connections libreoffice-* || true
 
 dnf autoremove -y
 
@@ -42,8 +42,7 @@ dnf install -y \
     code \
     nodejs \
     adw-gtk3-theme \
-    python3-pip \
-    flatpak-builder
+    python3-pip
 
 echo "### ------ INSTALANDO EXTENSÕES GNOME ------ ###"
 dnf install -y \
